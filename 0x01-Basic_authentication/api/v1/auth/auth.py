@@ -9,7 +9,14 @@ from typing import TypeVar, List
 class Auth():
     def require_auth(self, path: str, excluded_paths: List[str]) -> bool:
         '''
-            Return false
+        Check if a path requires authentication based on excluded paths.
+
+        Args:
+            path (str): The path to check for authentication requirement.
+            excluded_paths (List[str]): A list of paths that are excluded from authentication.
+
+        Returns:
+            bool: True if the path requires authentication, False otherwise.
         '''
         if path is None:
             return True
@@ -30,15 +37,25 @@ class Auth():
 
     def authorization_header(self, request=None) -> str: 
         '''
-        Return None
+        Get the authorization header from a Flask request.
+
+        Args:
+            request: A Flask request object.
+
+        Returns:
+            str: The value of the authorization header, or None if it doesn't exist.
         '''
         return None
     
 
     def current_user(self, request=None) -> TypeVar('User'):
         '''
-            Aunthentication logic is here
-            Retutn - 
-                None if user is not auntheticated
+        Authenticate the current user based on a Flask request.
+
+        Args:
+            request: A Flask request object.
+
+        Returns:
+            TypeVar('User'): The authenticated user, or None if authentication fails.
         '''
         return None
