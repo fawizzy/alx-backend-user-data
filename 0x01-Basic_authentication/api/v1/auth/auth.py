@@ -50,7 +50,11 @@ class Auth():
                 The value of the authorization header,
                 or None if it doesn't exist.
         '''
-        return None
+        if request is None:
+            return None
+        if request["Authorization"] is None:
+            return None
+        return request["Authorization"]
 
     def current_user(self, request=None) -> TypeVar('User'):
         '''
