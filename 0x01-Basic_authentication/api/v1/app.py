@@ -42,6 +42,9 @@ def not_found(error) -> str:
 
 @app.before_request
 def before_req():
+    '''
+    Setting before request
+    '''
     if auth is None:
         pass
     else:
