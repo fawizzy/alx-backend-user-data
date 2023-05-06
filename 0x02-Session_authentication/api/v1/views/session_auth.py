@@ -20,7 +20,7 @@ def auth_session():
     if email is None:
         return jsonify({"error": "email missing"}), 400
     if password is None:
-        return jsonify({"error": "password"}), 400
+        return jsonify({"error": "password missing"}), 400
     users = User.search({"email": email})
     if users is None or users == []:
         return jsonify({"error": "no user found for this email"})
