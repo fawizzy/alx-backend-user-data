@@ -53,7 +53,7 @@ class DB:
             raise error
         return users
 
-    def update_user(self, user_id, **kwargs) -> None:
+    def update_user(self, user_id: int, **kwargs) -> None:
         user = self.find_user_by(id=user_id)
         for k, v in kwargs.items():
             if hasattr(user, k):
