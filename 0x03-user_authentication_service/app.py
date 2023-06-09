@@ -29,7 +29,7 @@ def users() -> str:
     try:
         AUTH.register_user(email, password)
         payload = {"email": f"{email}", "message": "user created"}
-        return jsonify(payload)
+        return jsonify(payload), 200
     except ValueError:
         payload = {"message": "email already registered"}
         return jsonify(payload), 400
