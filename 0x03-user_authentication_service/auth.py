@@ -106,7 +106,6 @@ class Auth:
         """
         try:
             user = self._db.find_user_by(reset_token=reset_token)
-            print(user.hashed_password)
         except NoResultFound:
             raise ValueError()
         hashed = _hash_password(password)
