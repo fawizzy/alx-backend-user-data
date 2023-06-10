@@ -1,4 +1,4 @@
-#!/usr/bin/env pyhton3
+#!/usr/bin/env python3
 """
 Flask app
 """
@@ -86,11 +86,11 @@ def reset_password():
     reset password token
     """
     email = request.form.get('email')
-    reset_token = AUTH.get_reset_password_token(email)
-    if reset_token:
+    try:
+        reset_token = AUTH.get_reset_password_token(email)
         payload = {"email": f"{email}", "reset_token": f"{reset_token}"}
         return jsonify(payload), 200
-    else:
+    except ValueError:
         abort(403)
 
 
