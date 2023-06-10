@@ -45,6 +45,9 @@ class DB:
         return usr
 
     def find_user_by(self, **kwargs) -> User:
+        """
+        Find user by attributes
+        """
         session = self._session
         try:
             users = session.query(User).filter_by(**kwargs).first()
